@@ -264,3 +264,27 @@ rtmp {
 
 10. После настройки сервера, берем плеер, который умеет поддерживать HLS формат и указываем путь до плейлиста. В нашем случае, это http://11.22.33.44/hls/stream.m3u8 (ip сервера свой)
 
+
+CROSS DOMAIN:
+<pre>
+add_header 'Access-Control-Allow-Origin' '*';
+</pre>
+
+hls примеры:
+1. (смазывает растяжкой)
+<pre>
+ffmpeg -loglevel verbose -re -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subtype=0"  -vcodec libx264 -vprofile baseline -acodec libmp3lame -ar 44100 -ac 1 -f flv rtmp://127.0.0.1:1935/hls/stream
+</pre>
+
+2. (смазывает сеткой)
+<pre>
+ffmpeg -re -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subtype=0" -acodec copy -bsf:a aac_adtstoasc -vcodec copy -f flv rtmp://127.0.0.1:1935/hls/stream
+</pre>
+
+3. (профит)
+<pre>
+ffmpeg -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subtype=0" -c copy -f flv rtmp://127.0.0.1:1935/hls/stream
+</pre>
+
+
+
