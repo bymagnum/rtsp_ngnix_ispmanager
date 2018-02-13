@@ -270,6 +270,7 @@ CROSS DOMAIN:
 add_header 'Access-Control-Allow-Origin' '*';
 </pre>
 
+
 hls примеры:
 1. (смазывает растяжкой)
 <pre>
@@ -287,4 +288,32 @@ ffmpeg -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subty
 </pre>
 
 
+
+Для добавления камер:
+
+1. Идем в папку tmp, создаем каталог, с названием hls2.
+
+2. Добавляем в секцию rtmp для нарезки плейлиста:
+<pre>
+     application papina {
+            live on;
+            hls on;
+            hls_fragment 3s;
+            hls_playlist_length 60;
+            hls_path /tmp/hls2;
+            exec_static ffmpeg -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subtype=0" -c copy -f flv rtmp://127.0.0.1:1935/hls2/stream;
+        }
+</pre>     
+3. А для того чтобы все это дело отдать в веб, в секцию server пишем: 
+<pre>
+        location /hls2 {
+                types {
+                        application/vnd.apple.mpegurl m3u8;
+                        video/mp2t ts;
+                }
+                root /tmp;
+                add_header Cache-Control no-cache;
+                add_header 'Access-Control-Allow-Origin' '*';
+        }
+</pre>
 
