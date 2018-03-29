@@ -23,6 +23,8 @@ yum install libpcre3 libpcre3-dev libssl-dev -y
 yum install rtmpdump -y
 </pre>
 
+пожалуй этого достаточно будет для работы сервера в режиме
+
 4. Устанавливаем nginx (именно так и ставим, не через панель): <br>
 <pre>
 /usr/local/ispmgr/sbin/pkgctl install nginx
@@ -316,4 +318,11 @@ ffmpeg -i "rtsp://guest:12345456@11.22.33.44:123/cam/realmonitor?channel=1&subty
                 add_header 'Access-Control-Allow-Origin' '*';
         }
 </pre>
+
+
+Пармаетр:
+<pre>
+add_header 'Access-Control-Allow-Origin' '*'; 
+</pre>
+требуется для того, чтобы Ваше видео возможно было вставить на любом сайте (политика защиты браузера)*
 
