@@ -91,7 +91,7 @@ yum install ffmpeg ffmpeg-compat ffmpeg-compat-devel ffmpeg-devel ffmpeg-libs
 /etc/init.d/nginx stop
 </pre>
 
-9. Далее идем редактировать nginx.conf (лежит /etc/nginx), приводим примерно к такому виду (может отличаться от моего): <br>
+9. Далее идем редактировать nginx.conf (лежит /etc/nginx/nginx.conf), приводим примерно к такому виду (может отличаться от моего): <br>
 <pre>
 #user  nobody;
 worker_processes  1;
