@@ -42,7 +42,7 @@ wget http://nginx.org/download/nginx-1.10.2.tar.gz
 <pre>
 tar -xzvf nginx-1.10.2.tar.gz
 </pre>
-скачиваем nginx-rtmp-module:
+скачиваем nginx-rtmp-module (https://github.com/arut/nginx-rtmp-module):
 <pre>
 wget https://github.com/arut/nginx-rtmp-module/zipball/master -O nginx-rtmp-module-master.zip
 </pre>
