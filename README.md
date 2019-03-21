@@ -21,6 +21,7 @@ yum install libxslt-devel -y
 yum install pcre-devel -y
 yum install libpcre3 libpcre3-dev libssl-dev -y
 yum install rtmpdump -y
+yum update -y
 </pre>
 
 пожалуй этого достаточно будет для работы сервера в режиме
