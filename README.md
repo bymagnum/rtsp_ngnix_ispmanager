@@ -55,6 +55,7 @@ unzip nginx-rtmp-module-master.zip -d nginx-rtmp-module-master
 cd nginx-1.10.2
 </pre>
 собираем:
+(необходимо изменить arut-nginx-rtmp-module-43f1e42 - последние значения на свои)
 <pre>
 ./configure --prefix=/usr --add-module=../nginx-rtmp-module-master/arut-nginx-rtmp-module-43f1e42/ --pid-path=/var/run/nginx.pid --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_ssl_module
 </pre>
