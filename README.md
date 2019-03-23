@@ -70,20 +70,21 @@ make install
 cd
 </pre>
 
-7. (ИНФОРМАЦИЯ НЕ АКТУАЛЬНА!!! Пункт 7.1) Устанавливаем ffmpeg. (http://firstwiki.ru/index.php/Установка_FFMPEG) <br>
-Импортируем и устанавливаем нужные репозитории:
-<pre>
+7. (ИНФОРМАЦИЯ НЕ АКТУАЛЬНА!!! Пункт 7.1) <strike>Устанавливаем ffmpeg. (http://firstwiki.ru/index.php/Установка_FFMPEG)</strike> <br>
+<strike>Импортируем и устанавливаем нужные репозитории:</strike>
+<strike><pre>
 rpm --import https://raw.githubusercontent.com/example42/puppet-yum/master/files/CentOS.6/rpm-gpg/RPM-GPG-KEY.atrpms
 rpm -Uvh https://www.mirrorservice.org/sites/dl.atrpms.net/el6.7-x86_64/atrpms/stable/atrpms-repo-6-7.el6.x86_64.rpm
-</pre>
-Устраняем ошибки в импортируемых репозиториях
-<pre>
+</pre></strike>
+<strike>Устраняем ошибки в импортируемых репозиториях</strike>
+<strike><pre>
 sed -i 's,http://dl,https://www.mirrorservice.org/sites/dl,' /etc/yum.repos.d/atrpms*.repo
-</pre>
-Устанавливаем FFmpeg
-<pre>
+</pre></strike>
+<strike>Устанавливаем FFmpeg</strike>
+<strike><pre>
 yum install ffmpeg ffmpeg-compat ffmpeg-compat-devel ffmpeg-devel ffmpeg-libs
-</pre>
+</pre></strike>
+
 
 7.1 Устанавливаем ffmpeg.
 
