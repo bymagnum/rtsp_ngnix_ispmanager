@@ -70,7 +70,7 @@ make install
 cd
 </pre>
 
-7. Устанавливаем ffmpeg. (http://firstwiki.ru/index.php/Установка_FFMPEG) <br>
+7. (ИНФОРМАЦИЯ НЕ АКТУАЛЬНА!!! Пункт 7.1) Устанавливаем ffmpeg. (http://firstwiki.ru/index.php/Установка_FFMPEG) <br>
 Импортируем и устанавливаем нужные репозитории:
 <pre>
 rpm --import https://raw.githubusercontent.com/example42/puppet-yum/master/files/CentOS.6/rpm-gpg/RPM-GPG-KEY.atrpms
@@ -84,6 +84,49 @@ sed -i 's,http://dl,https://www.mirrorservice.org/sites/dl,' /etc/yum.repos.d/at
 <pre>
 yum install ffmpeg ffmpeg-compat ffmpeg-compat-devel ffmpeg-devel ffmpeg-libs
 </pre>
+
+7.1 Устанавливаем ffmpeg.
+
+Удаляем файлы repo atrpms (offline)
+<pre>
+/etc/yum.repos.d
+</pre>
+Далее:
+<pre>
+yum repolist - посмотреть список (уточняем есть ли в списке atrpms)
+yum clean all - очистить кеш 
+yum makecache - создать кеш
+</pre>
+
+Создаем repo: 
+<pre>
+yum install http://repo.okay.com.mx/centos/6/x86_64/release/okay-release-1-1.noarch.rpm
+</pre>
+Или руками пишем любым редактором: 
+<pre>
+[okay]
+name=Extra OKay Packages for Enterprise Linux - $basearch
+baseurl=http://repo.okay.com.mx/centos/$releasever/$basearch/release
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OKAY
+
+[okay-debuginfo]
+name=Extra OKay Packages for Enterprise Linux - $basearch - Debug
+baseurl=http://repo.okay.com.mx/centos/$releasever/$basearch/debug
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OKAY
+gpgcheck=1
+</pre>
+
+Далее:
+<pre>
+yum install ffmpeg
+</pre>
+Если ранее производились какие либо действия по установке ffmpeg - то перед началом:
+
 
 8. Это важно! Перезапуск не выполнять из панели, т.к. нам надо подружить панель с ngnix. <br>
 Для тех кто забыл:
