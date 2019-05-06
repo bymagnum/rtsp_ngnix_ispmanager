@@ -24,8 +24,6 @@ yum install rtmpdump -y
 yum update -y
 </pre>
 
-пожалуй этого достаточно будет для работы сервера в режиме
-
 4. Устанавливаем nginx (именно так и ставим, не через панель): <br>
 <pre>
 /usr/local/ispmgr/sbin/pkgctl install nginx
