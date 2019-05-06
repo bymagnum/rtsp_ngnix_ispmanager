@@ -10,7 +10,7 @@
 yum -y groupinstall 'Development Tools'
 yum -y install libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel
 yum install nano -y
-yum install vim -y
+yum install vim -y (кому что ...)
 yum install hg -y
 yum install cmake -y
 yum install gcc gcc+ -y
