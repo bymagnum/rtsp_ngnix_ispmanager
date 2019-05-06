@@ -1,5 +1,5 @@
 
-# rtsp + nginx + ispmanager + CentOS 6.8 x86-64
+# rtsp/rtmp + nginx + ispmanager + CentOS 6.8 x86-64
 
 1. Инсталируем ОС.
 
